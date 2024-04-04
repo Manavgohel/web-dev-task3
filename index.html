@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="notification"></p>
+
+    <div class="container">
+      <h4>ToDo List</h4>
+      <div class="addInput">
+        <input
+          type="text"
+          class="addInputField"
+          placeholder="Add a New Task..."
+          required
+        />
+        <input type="hidden" name="" class="editInputField" />
+        <i class="fa-solid fa-pen"></i>
+        <button class="addTask">+</button>
+        <button class="saveTask" style="display: none">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+
+      <div class="btns_filter">
+        <div class="btns">
+          <button class="active">Pending</button>
+          <button class="complete">Completed</button>
+          <div class="showChange"></div>
+        </div>
+
+        <div class="filter">
+          <input
+            type="text"
+            name=""
+            id="penTaskFilter"
+            placeholder="Filter Pen Todos..."
+            onkeyup="filterPenTask()"
+          />
+          <input
+            type="text"
+            name=""
+            id="comTaskFilter"
+            placeholder="Filter Com Todos..."
+            style="display: none"
+            onkeyup="filterCompleteTask()"
+          />
+        </div>
+      </div>
+
+      <div class="todosContainer">
+        <div class="pendingTodos" style="display: block">
+          <ul class="todoList pending">
+            <!-- <li>Go to College.<div class="action"><button><i class="fa-solid fa-pen-to-square"></i></button><button><i class="fa-regular fa-square-check"></i></button><button><i class="fa-solid fa-trash"></i></button></div></li> -->
+          </ul>
+
+          <div class="footer penTodos">
+            <span
+              >You have <span class="pendingNum">0</span> pending task.</span
+            >
+            <button>All Clear</button>
+          </div>
+        </div>
+
+        <div class="completeTodos" style="display: none">
+          <ul class="todoList completeTask">
+            <!-- <li>Go to College.<div class="action com"><button><i class="fa-solid fa-xmark"></i></button><button><i class="fa-solid fa-trash"></i></button></div></li> -->
+          </ul>
+
+          <div class="footer comTodos">
+            <span
+              >You have completed <span class="completeNum">0</span> task.</span
+            >
+            <button>All Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

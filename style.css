@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+  user-select: none;
+}
+
+.notification {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  color: #000;
+  font-size: 18px;
+}
+
+.success {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.danger {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.container {
+  width: 500px;
+  padding: 20px 0 20px 20px;
+  border-radius: 8px;
+  border: 1.5px solid #999;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.container h4 {
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.container .addInput {
+  width: 100%;
+  padding-right: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.addInput input {
+  width: 88%;
+  height: 50px;
+  padding: 10px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid #999;
+  border-radius: 5px;
+}
+
+.addInput input:focus:invalid {
+  border-bottom: 3px solid red;
+}
+
+.addInput input:focus:valid {
+  border-bottom: 3px solid green;
+}
+
+.addInput .fa-pen {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  font-size: 18px;
+  opacity: 0.5;
+}
+
+.addInput button {
+  width: 11%;
+  height: 50px;
+  line-height: 51px;
+  font-size: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  pointer-events: none;
+  color: #fff;
+  background: #1877f2;
+  border: none;
+  outline: none;
+  opacity: 0.5;
+}
+
+.addInput .addTask.active {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.addInput .saveTask {
+  opacity: 1;
+  pointer-events: auto;
+  font-size: 25px;
+}
+
+.btns_filter {
+  padding-right: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns_filter .btns {
+  width: 50%;
+  height: 50px;
+  padding: 5px;
+  background: #9c9c9c;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.btns button {
+  height: 100%;
+  width: 50%;
+  border-radius: 5px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.btns button.complete {
+  left: 50%;
+}
+
+.showChange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  border-radius: 10px;
+  border: 5px solid #9c9c9c;
+  background: #fff;
+  color: #000;
+  z-index: 1;
+  transition: 0.2s;
+}
+
+.btns_filter .filter {
+  width: 48%;
+}
+
+.btns_filter .filter input {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 10px;
+  outline: none;
+  border: 2px solid #eee;
+  font-size: 16px;
+  letter-spacing: 1.3px;
+}
+
+.todosContainer {
+  width: 100%;
+}
+
+.todosContainer .pendingTodos,
+.todosContainer .completeTodos {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.todoList {
+  padding: 1px;
+  padding-right: 21px;
+}
+
+.todoList.overflow {
+  overflow-y: auto;
+  max-height: 320px;
+  padding-right: 1px;
+}
+
+.todoList::-webkit-scrollbar {
+  width: 20px;
+}
+
+.todoList::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 25px;
+}
+
+.todoList::-webkit-scrollbar-thumb {
+  background: #1877f2;
+  border-radius: 25px;
+  border: 6px solid #fff;
+}
+
+ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+  background: #eee;
+  border: none;
+  outline: none;
+  box-shadow: 0.1px 0.1px 2px rgba(0, 0, 0, 0.3);
+  font-family: inherit;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.pendingTodos ul li {
+  border-bottom: 3px solid red;
+}
+
+.completeTodos ul li {
+  border-bottom: 3px solid green;
+}
+
+li .action {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+li:hover .action {
+  opacity: 1;
+  visibility: visible;
+}
+
+.action button {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  line-height: 18px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.action button:hover {
+  background: #fff;
+}
+
+.action.com {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.action.com button:first-child {
+  font-size: 22px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  padding-right: 20px;
+}
+
+.footer button {
+  padding: 10px 12px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  pointer-events: none;
+  background: #1877f2;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.footer button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
